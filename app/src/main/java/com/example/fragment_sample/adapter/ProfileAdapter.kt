@@ -1,14 +1,13 @@
 package com.example.fragment_sample.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.fragment_sample.databinding.ProfileItemBinding
 import com.example.fragment_sample.model.Profile
 
-class ProfileAdapter(private  val plofileList:List<Profile>) : RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder>(){
+class ProfileAdapter(private val plofileList: List<Profile>, private val onPlofileClicked: (Profile) -> Unit) : RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder>(){
 
     inner class ProfileViewHolder(private val binding:ProfileItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(plofile:Profile){
@@ -17,7 +16,11 @@ class ProfileAdapter(private  val plofileList:List<Profile>) : RecyclerView.Adap
             Glide.with(binding.root.context)
                 .load(plofile.imgResID)
                 .into(binding.ivProfile)
+            binding.root.setOnClickListener{
+                onPlofileClicked(plofile)
+            }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileViewHolder {
