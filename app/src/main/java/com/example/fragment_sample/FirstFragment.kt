@@ -34,17 +34,8 @@ class FirstFragment : Fragment() {
             Profile("Comp二郎",18,"本当は魔法使いになりたい剣士",R.drawable.swordman)
         )
 
-        val adapter = ProfileAdapter(profileList) { selectedProfile ->
-            parentFragmentManager.setFragmentResult(
-                REQUEST_PROFILE_DETAIL,
-                bundleOf("SELECTED_PROFILE" to selectedProfile)
-            )
-
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainerView,SecondFragment())
-                .addToBackStack(null)
-                .commit()
-        }
+        // ハンズオン演習：クリック時処理とfragmentの画面遷移処理を実装
+        val adapter = ProfileAdapter(profileList)
 
         binding.rvProfilelist.adapter = adapter
         binding.rvProfilelist.layoutManager = GridLayoutManager(context,2)
