@@ -32,7 +32,7 @@ class SecondFragment : Fragment() {
             binding.tvName.text = "名前:"+selectedProfile.name
             binding.tvAge.text = "年齢："+selectedProfile.age.toString()
             // 演習：詳細内容を追記してください。
-
+            binding.tvDetail.text = "詳細："+selectedProfile.detail
             Glide.with(binding.root.context)
                 .load(selectedProfile.imgResID)
                 .into(binding.ivProfile)
