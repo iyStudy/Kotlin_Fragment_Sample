@@ -29,7 +29,7 @@ class FirstFragment : Fragment() {
 
         // 表示するプロフィールリスト
         val profileList = listOf<Profile>(
-            Profile(getString(R.string.text_monk_name),getString(R.string.text_monk_age).toInt(),R.string.text_monk_detail.toString(),R.drawable.monk),
+            Profile(getString(R.string.text_monk_name),getString(R.string.text_monk_age).toInt(),getString(R.string.text_monk_detail),R.drawable.monk),
             Profile("ECC太郎",20,"筋トレ大好き魔術師",R.drawable.wizard),
             Profile("Comp二郎",18,"本当は魔法使いになりたい剣士",R.drawable.swordman)
         )
